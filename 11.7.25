@@ -1,0 +1,103 @@
+1.
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      System.out.println("Enter the age:");
+      int age=sc.nextInt();
+      int ageResult;
+      if (age < 0 || age > 101) {
+      ageResult = -1;
+      } else if (age <= 5) {
+      ageResult = 0;
+      } else if (age <= 12) {
+      ageResult = 1;  
+      } else if (age <= 19) {
+      ageResult = 2;
+      } else if (age <= 50) {
+      ageResult = 3;
+      } else if (age <= 60) {
+      ageResult = 4;
+      } else {
+      ageResult = 5;
+      }
+      System.out.println(ageResult);
+    }
+  }
+  *********************************************************
+  2.
+  import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int num = sc.nextInt();
+        int sq = 0;
+        while (num > 0) {
+            int d = num % 10;
+            sq += d * d; 
+            num /= 10;
+        }
+        System.out.println("Sum of squares of digits: " + sq);
+    }
+}
+***************************************************************
+3.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+        int n = sc.nextInt();
+        int f=n;
+        int cycle = 0;
+        while (cycle < 10) {
+            int sum = 0, temp = f;
+            while (temp > 0) {
+                int d= temp % 10;
+                sum += d * d;
+                temp /= 10;
+            }
+            f = sum;
+            cycle++;
+            if (f== 1) {
+                break;
+            }
+        }
+        System.out.println("Result after " + cycle + " cycles: " + f);
+        if (f == 1) {
+            System.out.println("The number is a Happy Number.");
+        } else {
+            System.out.println("The number is NOT a Happy Number.");
+        }
+    }
+}
+**********************************************************************
+4.
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] prices = new int[5];
+        System.out.println("Enter stock prices for Monday to Friday:");
+        for (int i = 0; i < 5; i++) {
+            prices[i] = sc.nextInt();
+        }
+        int max = prices[1] - prices[0]; 
+        for (int i = 0; i < 5; i++) {
+            for (int j = i + 1; j < 5; j++) {
+                int profit = prices[j] - prices[i];
+                if (profit > max) {
+                    max = profit;
+                }
+            }
+        }
+        System.out.println("Maximum profit (or minimum loss): " + max);
+    }
+}
+***********************************************************************
